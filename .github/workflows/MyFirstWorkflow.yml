@@ -1,0 +1,23 @@
+name: my_first_workflow
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 12 * * 1-6" #run at 12:00 UTC Mon-Sat
+  workflow_dispatch:
+
+jobs:
+  firstJob:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello world"
+      
+      - name: Checkout #cloning the repository
+        uses: actions/checkout@v6.0.2
+
+      - name: List files of repo
+        run: | # "|" for multi line script, new line with 2 space indentation
+          echo "the repo ${{github.repository}} contains the following files:"
+          tree
+    
