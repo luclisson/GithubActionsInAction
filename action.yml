@@ -10,6 +10,6 @@ name: "Luc's Action in Action"
            description: 'The answer to everything (always 42)'
        runs:
          using: 'docker'
-         image: 'Dockerfile'
+         image: 'dockerfile'
          args:
            - ${{ inputs.who-to-greet }}
